@@ -1,0 +1,246 @@
+##------------------- FILENAME: tensiletestMGI.in -------------------##
+# LAMMPS input file for 2D axial tensile test simulation 
+# [Modified From] tensiletest.in
+# [Date] 2020/7/21
+# [Contact] b04501018@ntu.edu.tw/b04501012@ntu.edu.tw
+# [Purpose] Unify the settings of all simulations within the scope 
+# of "BioMGI Project", i.e. Bone/Osteon, Gradient, Cellular stuctures, 
+# in order to provide the database for future ML work.
+# [Note] Search for keyword [CHANGE] and change them if necessary to  
+# customize your each simulation.
+##-------------------------------------------------------------------##
+ 
+#============================================================#
+# SETTING
+#============================================================#
+
+# [CHANGE]: comment out either 1) or 2)
+
+# 1) rootname of data file [MANUALLY SET]
+variable	rootname string resize
+
+# 2) rootname of data file [AUTO SET]
+# variable	rootname  python get_parent
+# python		get_parent return v_rootname format s file get_parent.py		
+
+# length of bond
+variable	lb equal 100
+
+# strain rate (per femtosecond) (pseudo)
+variable	erate equal 1e-7
+# variable	erate equal 1e-7
+
+# ML strain 
+variable	eML equal 0.01
+
+# final strain (greater than or equal to eML)[CHANGE]
+variable	efinal equal 0.01				
+
+# frequency of minimization (per eML)
+variable	fmin equal 100
+
+# interval timesteps of minimization (determined by eML)
+variable	nmin equal round(${eML}/${erate}/${fmin})
+
+# interval timesteps of checking bonds
+variable	nbrk equal round(${nmin}/1e3)
+
+# time integration and total runtime (determined by efinal)
+variable	dt equal 0.1
+variable	runtime equal round(${efinal}/(${erate}*${dt}))
+
+# interval timestep of outputs (determined by eML)
+variable	nthm equal round(${eML}/${erate}/1e2) #1,000
+variable	ndmp equal 10*${nthm} #10,000
+variable	nrst equal 100*${ndmp} #1,000,000
+
+#============================================================#
+# INITIALIZE LAMMPS
+#============================================================#
+
+units			real
+dimension		2
+boundary		s s p
+atom_style		bond
+
+#============================================================#
+# CREATE INITIAL GEOMETRY
+#============================================================#
+
+read_data		${rootname}.data extra/bond/per/atom 6 extra/special/per/atom 6
+
+# define boundary
+variable		l_bound	equal 0
+variable		r_bound equal 25600
+region			left block INF ${l_bound} INF INF INF INF units box
+group			LEFT region left
+region			right block ${r_bound} INF INF INF INF INF units box
+group			RIGHT region right	
+group			MOBILE subtract all LEFT RIGHT
+variable		mleft equal bound(LEFT,xmax)
+variable		mright equal bound(RIGHT,xmin)
+
+# set edges as stiff		
+set 			group LEFT type 1	
+set 			group RIGHT type 1
+
+# create bonds
+group			stiff type 1
+group			soft type 2
+
+pair_style		zero ${lb} nocoeff
+pair_coeff		* *
+neighbor		${lb} nsq
+neigh_modify	delay 10
+comm_modify		cutoff $(100*v_lb)
+
+create_bonds	many stiff stiff 1 $(v_lb-10) $(v_lb+10)
+create_bonds	many soft soft 2 $(v_lb-10) $(v_lb+10)
+create_bonds	many stiff soft 3 $(v_lb-10) $(v_lb+10)
+
+# write out data (with info of bonds and particles)
+write_data		${rootname}_initial.data 
+
+#============================================================#
+# FORCE FIELD
+#============================================================#
+
+# K
+variable		st_K equal 1.0000
+variable		so_K equal 0.0100
+variable		int_K equal 0.0625
+# Rb
+variable		st_rb equal 101
+variable		so_rb equal 110
+variable		int_rb equal 104
+# set parameters of bonds
+bond_style		harmonic
+bond_coeff		1 ${st_K} ${lb}
+bond_coeff		2 ${so_K} ${lb}
+bond_coeff		3 ${int_K} ${lb}
+fix				b1 all bond/break ${nbrk} 1 ${st_rb}
+fix				b2 all bond/break ${nbrk} 2 ${so_rb}
+fix				b3 all bond/break ${nbrk} 3 ${int_rb}
+
+# zero out the z-dimension velocity and force 
+fix				0 all enforce2d
+
+#============================================================#
+# CALCULATION
+#============================================================#
+
+# potential energy
+compute		peatom all pe/atom bond
+# stress per atom(units: stress*volume formulation)
+compute		stressatom all stress/atom NULL
+# stress sum of all(units: stress*volume formulation)
+compute		sta MOBILE reduce sum c_stressatom[*]
+
+#------------------- stress-strain curve ------------------- #
+
+# get dimension of x-direction
+variable	l equal v_mright-v_mleft
+variable	l0 equal ${l}
+# get dimension of y-direction
+variable	w equal ly
+variable	w0 equal ${w}
+# stress of stress-strain curve, unit: MPa
+variable	sxx equal c_sta[1]/(v_l*v_w0*lz)*0.101325
+# engineering strain of stress-strain curve
+variable	exx equal "(v_l - v_l0)/v_l0" 
+
+#-------------- stress distribution (for dump) ------------- #
+variable	volperatom equal 2*sqrt(3)*${lb}*${lb}/4
+variable	stress11 atom c_stressatom[1]/${volperatom}
+variable	stress22 atom c_stressatom[2]/${volperatom}
+variable	stress12 atom c_stressatom[4]/${volperatom}
+variable	volstress atom (c_stressatom[1]+c_stressatom[2])/2/${volperatom}
+
+# strain for dump
+variable	bigexx equal round(v_exx*10000)
+variable	dumpindex format bigexx %.0f
+
+# bond
+compute		ba all property/local batom1 batom2 btype
+compute		bp all bond/local dist engpot
+
+
+group 		Atoms	id 	38185 38463
+compute		BondInfo	Atoms bond/local	dist	engpot	force
+# compute 	b_len 	Atoms 	reduce ave 	c_Atoms_len
+compute 	b_len 	Atoms 	reduce ave 	c_BondInfo[1]
+compute 	b_engpot 	Atoms 	reduce ave 	c_BondInfo[2]
+compute 	b_force 	Atoms 	reduce ave 	c_BondInfo[3]
+
+
+#============================================================#
+# SIMULATION
+#============================================================#
+
+# boundary condition
+fix		lb LEFT setforce 0.0 NULL 0.0
+fix		rb RIGHT setforce 0.0 NULL 0.0
+variable	Flb equal -f_lb[1]
+variable	Frb equal -f_rb[1]
+variable	NumOfBonds	equal	bonds
+
+# time integration
+timestep	${dt}	# femtosecond
+# timestep	10
+
+# thermo
+fix		nve MOBILE nve
+thermo		${nthm}
+thermo_style	custom step time temp etotal pe ke ebond pxx pyy lx ly v_exx v_sxx f_lb[1] f_rb[1] bonds
+
+# thermo_style	custom step time temp etotal pe ke ebond pxx pyy lx ly v_exx v_sxx f_lb[1] f_rb[1]
+
+# restart
+#restart		${nrst} restart/restart.*
+
+# output text file (stress-strain curve)
+variable	ts equal step
+fix		ss all print ${nthm} "${ts}    ${exx}    ${sxx}    ${Flb}    ${Frb}		${NumOfBonds}" append ss_${rootname}.txt screen no title "step    exx    sxx    Flb    Frb   Bond"
+
+# fix 	Atom_len	Atoms	ave/time 	1 	1 	1 	c_b_len	file	Bondlen.dat
+fix 	Atom_len	Atoms	ave/time 	1 	1 	1 	c_b_len c_b_engpot c_b_force	file	BondInfo.dat
+
+# determine how many times of minimization(determined by efinal)
+variable	n equal round(${runtime}/${nmin})
+variable	i loop 200
+###
+# dump 		my_animation all xyz 10000 animation.xyz
+###
+# load-minimization loop
+label		loop
+
+# turnoff restart after minimization
+# restart		0
+# minimize
+min_style	cg
+min_modify	dmax $(v_lb/10.0)
+minimize	1.0e-4 1.0e-6 1000 100000
+
+# turn on restart
+# restart		${nrst} restart/restart.*
+
+# dump(every run)
+# dump		atom all custom 10000 atom.dump.${dumpindex} id type x y c_peatom v_stress11 v_stress22 v_stress12 v_volstress 
+# dump_modify		atom first yes
+# dump		bond MOBILE local 10000 bond.${ts}.text c_ba[3]
+# dump_modify		bond first yes
+
+# tensile test
+fix		ml LEFT move linear $(-v_erate/2.0*v_l0) NULL 0 units box
+fix		mr RIGHT move linear $(v_erate/2.0*v_l0) NULL 0 units box
+
+run		10000
+
+# undump		atom
+# undump		bond
+
+unfix		ml
+unfix		mr
+
+next		i
+jump		input_${rootname}.in loop

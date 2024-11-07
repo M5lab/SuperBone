@@ -1,0 +1,2 @@
+A_CASUARIUS_FEMUR_ID[020]_s[55]_x[20]_y[-40].png 
+M_white_rhino_radius_ID[028]_s[56]_x[80]_y[10].png 

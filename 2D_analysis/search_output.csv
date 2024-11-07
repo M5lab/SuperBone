@@ -1,0 +1,70 @@
+Class,Order,Family,Genus-Species,Part,Patient Name,Image Type,Scan Options,Pixel Spacing (mm),Number of DICOM Files,Size of All DICOM Files (MB),File Path in ZIP
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,TMT,CASUARIUS_TMT,AXIAL,AXIAL MODE,0.191406,232,116,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\TMT
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,TMT,CASUARIUS_TMT,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\TMT
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,femur,CASUARIUS_FEMUR,AXIAL,AXIAL MODE,0.197266,184,92,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\femur
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,femur,CASUARIUS_FEMUR,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\femur
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,tibia,CASUARIUS_TBT,AXIAL,AXIAL MODE,0.283203,312,156,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\tibia
+Aves,Casuariiformes,Casuariidae,Casuarius_casuarius-southern_cassowary,tibia,CASUARIUS_TBT,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Casuariiformes\Casuariidae\Casuarius_casuarius-southern_cassowary\CT\UMZC Casuarius\tibia
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,TMT,RHEA_TMT,AXIAL,AXIAL MODE,0.199219,288,144,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\TMT
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,TMT,RHEA_TMT,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\TMT
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,fibula,RHEA_FIBULA,AXIAL,AXIAL MODE,0.1875,192,96,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\fibula
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,fibula,RHEA_FIBULA,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\fibula
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,tibia,RHEA_TBT,AXIAL,AXIAL MODE,0.21875,312,156,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\tibia
+Aves,Rheiformes,Rheidae,Rhea_americana-greater_rhea,tibia,RHEA_TBT,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Rheiformes\Rheidae\Rhea_americana-greater_rhea\CT\UMZC Rhea\tibia
+Aves,Struthioniformes,Dinornithidae,Dinornis_robustus-South_Island_giant_moa,TMT,moa_robust_lt_tmt,AXIAL,AXIAL MODE,0.351562,360,180,Struthioniformes\Dinornithidae\Dinornis_robustus-South_Island_giant_moa\CT\umzc_621-Dinornis_robustus1\TMT
+Aves,Struthioniformes,Dinornithidae,Dinornis_robustus-South_Island_giant_moa,tibiotarsus,moa_robust_lt_tbt,AXIAL,AXIAL MODE,0.300781,328,164,Struthioniformes\Dinornithidae\Dinornis_robustus-South_Island_giant_moa\CT\umzc_621-Dinornis_robustus1\tibiotarsus
+Aves,Struthioniformes,Dinornithidae,Emeus_crassus-eastern_moa,TMT,moa_rt_tmt,AXIAL,AXIAL MODE,0.283203,176,88,Struthioniformes\Dinornithidae\Emeus_crassus-eastern_moa\CT\umzc_609-Dinornis_crassus1\TMT
+Aves,Struthioniformes,Dinornithidae,Emeus_crassus-eastern_moa,femur,moa_rt_femur,AXIAL,AXIAL MODE,0.353516,224,112,Struthioniformes\Dinornithidae\Emeus_crassus-eastern_moa\CT\umzc_609-Dinornis_crassus1\femur
+Aves,Struthioniformes,Dinornithidae,Emeus_crassus-eastern_moa,tibiotarsus,moa_rt_tbt,AXIAL,AXIAL MODE,0.304688,384,192,Struthioniformes\Dinornithidae\Emeus_crassus-eastern_moa\CT\umzc_609-Dinornis_crassus1\tibiotarsus
+Mammala,Artiodactyla,Bovidae,Antilope_cervicapra-blackbuck,femur,Antilope_cervicapra_femur,AXIAL,AXIAL MODE,0.232422,176,88,Artiodactyla\Bovidae\Antilope_cervicapra-blackbuck\femur
+Mammala,Artiodactyla,Bovidae,Antilope_cervicapra-blackbuck,humerus,Antilope_cervicapra_humerus,AXIAL,AXIAL MODE,0.267578,160,80,Artiodactyla\Bovidae\Antilope_cervicapra-blackbuck\humerus
+Mammala,Artiodactyla,Bovidae,Antilope_cervicapra-blackbuck,scapula,Antilope_cervicapra_humerus,AXIAL,AXIAL MODE,0.363281,152,76,Artiodactyla\Bovidae\Antilope_cervicapra-blackbuck\scapula
+Mammala,Artiodactyla,Bovidae,Antilope_cervicapra-blackbuck,tibia,Antilope_cervicapra_tibia,AXIAL,AXIAL MODE,0.224609,200,100,Artiodactyla\Bovidae\Antilope_cervicapra-blackbuck\tibia
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,humerus,Cephalophys_sylvicultor_humerus,AXIAL,AXIAL MODE,0.242188,176,88,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\humerus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,humerus,Cephalophys_sylvicultor_humerus,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\humerus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,metacarpus,Cephalophus_sylvicultor_metacarp,AXIAL,AXIAL MODE,0.1875,152,76,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\metacarpus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,metacarpus,Cephalophus_sylvicultor_metacarp,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\metacarpus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,metatarsus,Cephalophus_sylvicultor_metatars,AXIAL,AXIAL MODE,0.1875,160,80,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\metatarsus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,metatarsus,Cephalophus_sylvicultor_metatars,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\metatarsus
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,radius ulna,Cephalophus_sylvicultor_radulna,AXIAL,AXIAL MODE,0.234375,200,100,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\radius ulna
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,radius ulna,Cephalophus_sylvicultor_radulna,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\radius ulna
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,tibia,Cephalophus_sylvicultor_tibia,AXIAL,AXIAL MODE,0.248047,215,107.5,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\tibia
+Mammala,Artiodactyla,Bovidae,Cephalophus_silvicultor-Yellow_backed_duiker,tibia,Cephalophus_sylvicultor_tibia,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Cephalophus_silvicultor-Yellow_backed_duiker\tibia
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,humerus,Oryx_gazella_humerus,AXIAL,AXIAL MODE,0.351562,216,108,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\humerus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,humerus,Oryx_gazella_humerus,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\humerus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,metacarpus,Oryx_gazella_metacarpus,AXIAL,AXIAL MODE,0.232422,208,104,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\metacarpus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,metacarpus,Oryx_gazella_metacarpus,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\metacarpus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,metatarsus,Oryx_gazella_metatarsus,AXIAL,AXIAL MODE,0.232422,208,104,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\metatarsus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,metatarsus,Oryx_gazella_metatarsus,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\metatarsus
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,tibia,Oryx_gazella_tibia,AXIAL,AXIAL MODE,0.3125,136,68,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\tibia
+Mammala,Artiodactyla,Bovidae,Oryx_beisa-beisa,tibia,Oryx_gazella_tibia,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Bovidae\Oryx_beisa-beisa\CT\nhm_1963.10.21.1\tibia
+Mammala,Artiodactyla,Cervidae,Alces_alces-eurasian_elk,radius ulna,ALCES_RADIUS_ULNA,AXIAL,AXIAL MODE,0.351562,216,108,Artiodactyla\Cervidae\Alces_alces-eurasian_elk\radius ulna
+Mammala,Artiodactyla,Cervidae,Alces_alces-eurasian_elk,radius ulna,ALCES_RADIUS_ULNA,LOCALIZER,SCOUT MODE,0.545455,2,4.98,Artiodactyla\Cervidae\Alces_alces-eurasian_elk\radius ulna
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,femur,CERVUS_D_FEMUR,AXIAL,AXIAL MODE,0.296875,280,140,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\femur
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,femur,CERVUS_D_FEMUR,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\femur
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,humerus,CERVUS_D_HUMERUS,AXIAL,AXIAL MODE,0.208984,240,120,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\humerus
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,humerus,CERVUS_D_HUMERUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\humerus
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,metacarpus-maybe,CERVUS_D_METACARPUS,AXIAL,AXIAL MODE,0.205078,224,112,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\metacarpus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,metacarpus-maybe,CERVUS_D_METACARPUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\metacarpus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,metatarsus-maybe,CERVUS_D_METATARSUS,AXIAL,AXIAL MODE,0.1875,280,140,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\metatarsus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,metatarsus-maybe,CERVUS_D_METATARSUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\metatarsus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,radius-ulna,CERVUS_D_RADIUS_&_ULNA,AXIAL,AXIAL MODE,0.220703,288,144,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\radius-ulna
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,radius-ulna,CERVUS_D_RADIUS_&_ULNA,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\radius-ulna
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,tibia,CERVUS_D_TIBIA,AXIAL,AXIAL MODE,0.212891,296,148,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\tibia
+Mammala,Artiodactyla,Cervidae,Cervus_davidianus-Pere_Davids_deer,tibia,CERVUS_D_TIBIA,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_davidianus-Pere_Davids_deer\tibia
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,femur,CERVUSE_FEMUR,AXIAL,AXIAL MODE,0.207031,232,116,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\femur
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,femur,CERVUSE_FEMUR,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\femur
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,humerus,CERVUSE_HUMERUS,AXIAL,AXIAL MODE,0.228516,232,116,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\humerus
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,humerus,CERVUSE_HUMERUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\humerus
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,metacarpus-maybe,CERVUSE_METACARPUS,AXIAL,AXIAL MODE,0.1875,200,100,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\metacarpus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,metacarpus-maybe,CERVUSE_METACARPUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\metacarpus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,metatarsus-maybe,CERVUSE_METATARSUS,AXIAL,AXIAL MODE,0.189453,224,112,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\metatarsus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,metatarsus-maybe,CERVUSE_METATARSUS,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\metatarsus-maybe
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,radius-ulna,CERVUSE_RADIUS_ULNA,AXIAL,AXIAL MODE,0.189453,272,136,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\radius-ulna
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,radius-ulna,CERVUSE_RADIUS_ULNA,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\radius-ulna
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,tibia,CERVUSE_TIBIA,AXIAL,AXIAL MODE,0.189453,272,136,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\tibia
+Mammala,Artiodactyla,Cervidae,Cervus_elaphus-red_deer,tibia,CERVUSE_TIBIA,LOCALIZER,SCOUT MODE,0.545455,2,3.1,Artiodactyla\Cervidae\Cervus_elaphus-red_deer\tibia
+Mammala,Perissodactyla,Rhinocerotidae,Ceratotherium_simum-white_rhinoceros,fibula,white_rhino_fibula,AXIAL,AXIAL MODE,0.238281,144,72,Perissodactyla\Rhinocerotidae\Ceratotherium_simum-white_rhinoceros\CT\Ceratotherium_simum2\fibula
+Mammala,Perissodactyla,Rhinocerotidae,Ceratotherium_simum-white_rhinoceros,fibula,white_rhino_fibula,LOCALIZER,SCOUT MODE,0.545455,2,2.8,Perissodactyla\Rhinocerotidae\Ceratotherium_simum-white_rhinoceros\CT\Ceratotherium_simum2\fibula
+Mammala,Perissodactyla,Rhinocerotidae,Ceratotherium_simum-white_rhinoceros,radius,white_rhino_radius,AXIAL,AXIAL MODE,0.361328,164,82,Perissodactyla\Rhinocerotidae\Ceratotherium_simum-white_rhinoceros\CT\Ceratotherium_simum2\radius
+Mammala,Perissodactyla,Rhinocerotidae,Ceratotherium_simum-white_rhinoceros,radius,white_rhino_radius,LOCALIZER,SCOUT MODE,0.545455,2,2.8,Perissodactyla\Rhinocerotidae\Ceratotherium_simum-white_rhinoceros\CT\Ceratotherium_simum2\radius
