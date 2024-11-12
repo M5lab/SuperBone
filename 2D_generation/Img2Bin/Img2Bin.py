@@ -11,9 +11,9 @@ parser = argparse.ArgumentParser(prog='Img2Bin',
 parser.add_argument('infile', metavar='images', type=str,
                     help='absolute or relative address of image files')
 parser.add_argument('-o', dest='outfile', metavar='data file', type=str)
-parser.add_argument('-EC', dest='s', metavar='lc', type=float, default=30,
+parser.add_argument('-EC', dest='EC', metavar='ec', type=float, default=30,
                     help='Edge Cutoff = 0~255 for edge detection')
-parser.add_argument('-BC', dest='s', metavar='lc', type=float, default=30,
+parser.add_argument('-BC', dest='BC', metavar='bc', type=float, default=30,
                     help='Binary Cutoff = 0~255 for binary threshold')
 parser.add_argument('--version', action='version', version='%(prog)s {:s}'.format(version))
 
