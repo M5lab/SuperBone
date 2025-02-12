@@ -1,0 +1,77 @@
+#============================================================#
+# INITIALIZE LAMMPS
+#============================================================#
+echo 			none
+units 			si
+atom_style 		atomic
+dimension 		2
+boundary 		s s p
+neighbor 		0.0005 bin
+neigh_modify 	every 1 delay 0 check yes
+thermo_modify 	lost ignore flush yes
+
+variable		a equal 0.0002				# lattice constant
+variable		r0 equal ${a}				# HALF of equilibrium distance
+variable 		sigma equal ${r0}*(2^(-1/6))
+variable		rc equal 1.5*${sigma} 
+variable		dt equal 1e-9				# quasi-static, dt doesn't really matter
+timestep 		${dt}
+lattice			hex $a
+
+#============================================================#
+# READ DATA
+#============================================================#
+
+read_data		3_trim.data
+mass 			* 1e-7
+
+#============================================================#
+# FORCE FIELD
+#============================================================#
+
+pair_style 		lj/cut ${rc}
+variable 		eee equal 1.7e-3
+pair_coeff 		* * ${eee} ${sigma}
+
+#============================================================#
+# Generate FIBER
+#============================================================#
+
+variable		left_bound equal -0.05
+variable		right_bound equal 0.05
+variable		lower_bound equal -0.05
+variable		upper_bound equal 0.05
+region 			box block ${left_bound} ${right_bound} ${lower_bound} ${upper_bound} 0 $a units box
+create_atoms 	2 region box
+
+group			MATRIX type 1
+group			FIBER type 2				
+delete_atoms 	overlap 0.00001 FIBER MATRIX
+
+#============================================================#
+# Add Notch
+#============================================================#
+
+variable		notch_w equal $a*3.5
+variable		notch_h equal $a*40
+variable		left_notch equal (${left_bound}+${right_bound})/2-${notch_w}/2
+variable		right_notch equal (${left_bound}+${right_bound})/2+${notch_w}/2
+variable		lower_notch equal ${lower_bound}
+variable		upper_notch equal ${lower_bound}+${notch_h}
+
+region			notch block ${left_notch} ${right_notch} ${lower_notch} ${upper_notch} -$a $a units box
+delete_atoms	region notch
+
+#============================================================#
+# Extract Seed from Input Variable
+#============================================================#
+
+# 外部传入的 seed
+
+variable seed1 equal ${SEED1}
+variable seed2 equal ${SEED2}
+
+
+
+# 动态生成文件名
+write_data ../data/final_model_src/location[normal]_fibersize[uniform]_seed[${seed1}][${seed2}].data nocoeff

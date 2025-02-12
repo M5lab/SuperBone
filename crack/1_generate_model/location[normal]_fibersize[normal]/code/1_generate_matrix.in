@@ -1,0 +1,47 @@
+#============================================================#
+# INITIALIZE LAMMPS
+#============================================================#
+echo 			none
+units 			si
+atom_style 		atomic
+dimension 		2
+boundary 		s s p
+neighbor 		0.0005 bin
+neigh_modify 	every 1 delay 0 check yes
+thermo_modify 	lost ignore flush yes
+
+variable		a equal 0.0002				# lattice constant
+variable		r0 equal ${a}			    # HALF of equilibrium distance
+variable 		sigma equal ${r0}*(2^(-1/6))
+variable		rc equal 1.5*${sigma} 
+variable		dt equal 1e-9				# quasi-static, dt doesn't really matter
+timestep 		${dt}
+lattice			hex $a
+
+#============================================================#
+# Generate INITIAL MODEL
+#============================================================#
+
+variable		left_bound equal -0.05
+variable		right_bound equal 0.05
+variable		lower_bound equal -0.05
+variable		upper_bound equal 0.05
+region 			box block ${left_bound} ${right_bound} ${lower_bound} ${upper_bound} 0 ${a} units box
+create_box 		1 box
+mass 			* 1e-7 
+
+#============================================================#
+# Generate Type1 atoms
+#============================================================#
+
+create_atoms 	1 region box
+
+#============================================================#
+# FORCE FIELD
+#============================================================#
+
+pair_style 		lj/cut ${rc}
+variable 		eee equal 1.7e-3
+pair_coeff 		* * ${eee} ${sigma}
+
+write_data 		../data/1_matrix.data nocoeff
