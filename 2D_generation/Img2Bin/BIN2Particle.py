@@ -25,13 +25,14 @@ parser = argparse.ArgumentParser(prog='Img2Particle',
 parser.add_argument('infile', metavar='images', type=str,
                     help='absolute or relative address of image files')
 parser.add_argument('-o', dest='outfile', metavar='data file', type=str)
-parser.add_argument('-lx', dest='lx', metavar='Lx', type=float, default=25600,
+
+parser.add_argument('-lx', dest='lx', metavar='Lx', type=float, default=256,
                     help='model size in x dimension\t(default = 25600)')
-parser.add_argument('-ly', dest='ly', metavar='Ly',type=float, default=25600,
+parser.add_argument('-ly', dest='ly', metavar='Ly',type=float, default=256,
                     help='model size in y dimension\t(default = 25600)')
 parser.add_argument('-lz', dest='lz', metavar='Lz',type=float, default=1,
                     help='model size in z dimension\t(default = 1)')
-parser.add_argument('-s', dest='s', metavar='lc', type=float, default=100,
+parser.add_argument('-s', dest='s', metavar='lc', type=float, default=1,
                     help='lattice constant = particle spacing along (100)\t(default = 100)')
 parser.add_argument('-t', dest='types', metavar='types', type=int, default=2,
                     help='number of particle types')
