@@ -94,6 +94,9 @@ Img2Particle is a simple, in-house Python script that converts a grayscale image
 ## Example Usage
 
 ```bash
+# simple sample
+python Img2Particle.py -infile my_image.png -o my_model
+# costum sample
 python Img2Particle.py -infile my_image.png -o my_model -lx 0.00816 -ly 0.00816 -lz 1 -s 0.00003657 -t 2 -n 7.968e-5 1.083e-3
 ```
 
@@ -170,3 +173,9 @@ This LAMMPS input script performs a **2D axial tensile test** simulation. It is 
   Periodic data dumps are made during the loop to capture intermediate states.
 
 ---
+## Example Usage
+
+```bash
+# modify rootname before running
+lmp -in input_real_LSM.in
+```
